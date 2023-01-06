@@ -14,17 +14,19 @@ using namespace std;
     while (_t--)
 int main() {
     IOS;
-    ll n, tot, res = 0, target;
+    ll n, res = 0;
     cin >> n;
-    ll a[n];
-    for (int i = 0; i < n; i++) cin >> a[i];
-    tot = accumulate(a, a + n, 0);
-    // target = (tot % n >= (n / 2)) ? (tot / n) + 1 : (tot / n);
-    sort(a, a + n);
-    target = a[n / 2];
-    for (auto it : a) {
-        res += (abs(target - it));
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    cout << res << endl;
+    sort(a, a + n);
+    for (auto it : a) {
+        if (it > res + 1) {
+            break;
+        }
+        res += it;
+    }
+    cout << res + 1 << endl;
     return 0;
 }
