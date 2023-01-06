@@ -14,22 +14,14 @@ using namespace std;
     while (_t--)
 int main() {
     IOS;
-    int n, t;
+    ll n, term, j = 0, minv = -1 * MOD, res = -1 * MOD, prev = 0;
     cin >> n;
-    t = n;
-    pair<int, int> a[n];
-    while (t--) {
-        cin >> a[t].second >> a[t].first;
-    }
-    sort(a, a + n);
-    int res = 0, last = -1;
     for (int i = 0; i < n; i++) {
-        if (a[i].second >= last) {
-            res++;
-            last = a[i].first;
-        }
+        cin >> term;
+        prev += term;
+        prev = max(term, prev);
+        res = max(prev, res);
     }
     cout << res << endl;
-
     return 0;
 }

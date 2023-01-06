@@ -14,22 +14,18 @@ using namespace std;
     while (_t--)
 int main() {
     IOS;
-    int n, t;
-    cin >> n;
-    t = n;
-    pair<int, int> a[n];
-    while (t--) {
-        cin >> a[t].second >> a[t].first;
-    }
-    sort(a, a + n);
-    int res = 0, last = -1;
-    for (int i = 0; i < n; i++) {
-        if (a[i].second >= last) {
-            res++;
-            last = a[i].first;
+    int n, k, temp;
+    cin >> n >> k;
+    unordered_map<int, int> map;
+    for (int i = 1; i <= n; i++) {
+        cin >> temp;
+        if (map.count(k - temp)) {
+            cout << map[k - temp] << " " << i;
+            return 0;
+        } else {
+            map[temp] = i;
         }
     }
-    cout << res << endl;
-
+    cout << "IMPOSSIBLE" << endl;
     return 0;
 }
