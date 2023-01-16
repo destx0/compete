@@ -14,19 +14,15 @@ using namespace std;
     while (_t--)
 int main() {
     IOS;
-    // iterate all values of a vector
-    vi v ;
     int n;
     cin >> n;
+    int a[n];
+    for (int i = 0; i < n; i++) cin >> a[i];
+    ll tot = accumulate(a, a + n, 0);
+    ll smple = tot * (tot - 1) / 2;
+    ll res = 0;
     for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        v.push_back(x);
+        res += a[i] * (a[i] - 1) / 2;
     }
-    for (auto i : v) {
-        cout << i << " ";
-
-    }
-
-        return 0;
-    }
+    cout << smple - res << endl;
+}
