@@ -19,20 +19,15 @@ int main() {
     vector<ll> coins(c);
     for (auto &it : coins) cin >> it;
     // for (auto it : coins) cout << it << " ";
-    // auto highest = *max_element(coins.begin(), coins.end());
-    // cout << highest << endl;
-
     vector<ll> dp(t + 1, 0);
-    dp[0] = 1;
     for (int i = 1; i <= t; i++) {
         for (auto it : coins) {
             if (it <= i) {
-                dp[i] += dp[i - it];
+                dp[i] += 1;
                 dp[i] %= MOD;
             }
         }
     }
-    // for (auto it : dp) cout << it << " ";
     cout << dp[t] << endl;
     return 0;
 }
