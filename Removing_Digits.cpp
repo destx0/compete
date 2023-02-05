@@ -14,17 +14,15 @@ using namespace std;
     while (_t--)
 int main() {
     IOS;
-    ll c, t;
-    cin >> c >> t;
-    vector<ll> coin(c), dp(t + 1, 0);
-    for (ll i = 0; i < c; i++) cin >> coin[i];
-    dp[0] = 1;
-    for (ll i = 0; i < c; i++) {
-        for (ll j = coin[i]; j <= t; j++) {
-            dp[j] += dp[j - coin[i]];
-            dp[j] %= MOD;
+    ll n;
+    cin >> n;
+    vi dp(n + 1, MOD);
+    dp[0] = 0;
+    for (ll i = 0; i < n + 1; i++) {
+        for (ll j = i; j > 0; j /= 10) {
+            dp[i] = min(dp[i], dp[i - j % 10] + 1);
         }
     }
-    cout << dp[t] << endl;
+    cout << dp[n];
     return 0;
 }

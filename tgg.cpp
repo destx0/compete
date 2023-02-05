@@ -1,5 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+namespace Box1 {
+int a = 4;
+}
+namespace Box2 {
+int a = 13;
+}
 #define ll long long
 #define vi vector<int>
 #define endl "\n"
@@ -14,17 +20,11 @@ using namespace std;
     while (_t--)
 int main() {
     IOS;
-    ll c, t;
-    cin >> c >> t;
-    vector<ll> coin(c), dp(t + 1, 0);
-    for (ll i = 0; i < c; i++) cin >> coin[i];
-    dp[0] = 1;
-    for (ll i = 0; i < c; i++) {
-        for (ll j = coin[i]; j <= t; j++) {
-            dp[j] += dp[j - coin[i]];
-            dp[j] %= MOD;
-        }
-    }
-    cout << dp[t] << endl;
+    int new = 16;
+    Box1::a;
+    Box2::a;
+    cout << new;
+    printf("%d", new);
+
     return 0;
 }
