@@ -14,20 +14,19 @@ using namespace std;
     while (_t--)
 int main() {
     IOS;
-    ll c, t;
-    cin >> c >> t;
-    vector<ll> coins(c);
-    for (auto &it : coins) cin >> it;
-    // for (auto it : coins) cout << it << " ";
-    vector<ll> dp(t + 1, 0);
-    for (int i = 1; i <= t; i++) {
-        for (auto it : coins) {
-            if (it <= i) {
-                dp[i] += 1;
-                dp[i] %= MOD;
+    ll n, x;
+    cin >> n >> x;
+    vi c(n);
+    for (int i = 0; i < n; i++) cin >> c[i];
+    vi dp(x + 1, 0);
+    vi last(x + 1, -1);
+    for (int i = 1; i <= n; i++) {
+        for (auto coin : c) {
+            if (coin <= i) {
             }
         }
     }
-    cout << dp[t] << endl;
+    for (auto it : dp) cout << it << " ";
+    cout << dp[x] << endl;
     return 0;
 }
