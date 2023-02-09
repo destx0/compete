@@ -1,10 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define int long long
 #define vi vector<int>
-#define vvi vector<vector<int>>
-#define fr(i, a, b) for (int i = (a); i < (b); i++)
 #define endl "\n"
 #define MOD (1000000007)
 #define IOS                  \
@@ -15,10 +12,12 @@ using namespace std;
     int _t;      \
     cin >> _t;   \
     while (_t--)
-void solve() {  //
-}
-int32_t main() {
+int main() {
     IOS;
-    solve();
+    vi cows(3);
+    cin >> cows[0] >> cows[1] >> cows[2];
+    sort(cows.begin(), cows.end());
+    if ((cows[0] + 1 == cows[1]) && (cows[1] == cows[2] - 1)) cout << 0;
+    else if ((cows[0] + 2 == cows[1]) || (cows[1] == cows[2] - 2)) cout << 1;
     return 0;
 }
